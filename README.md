@@ -9,7 +9,7 @@ Idéale pour présenter un projet, un portfolio, une communauté ou un événeme
 
 ## 🚀 Démo en ligne
 
-🖥️ [Voir la démo (Netlify)](https://tonlien.netlify.app)
+🖥️ [Voir la démo (Netlify)](https://manga-theme.netlify.app/)
 
 ---
 
@@ -46,7 +46,7 @@ Idéale pour présenter un projet, un portfolio, une communauté ou un événeme
 
 1. **Cloner le repo**
    ```bash
-   git clone https://github.com/tonpseudo/manga-heroes-landing.git
+   git clone https://github.com/yassinkh2025/manga-theme
    cd manga-heroes-landing
 
 
@@ -98,7 +98,7 @@ Idéale pour présenter un projet, un portfolio, une communauté ou un événeme
 
 1. **Cloner le repo**
    ```bash
-   git clone https://github.com/tonpseudo/manga-heroes-landing.git
+   git clone https://github.com/yassinkh2025/manga-theme
    cd manga-heroes-landing
 
 Installer les dépendances
