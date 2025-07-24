@@ -1,6 +1,7 @@
+import CosmicBackground from "./CosmicBackground";
 import Menu from "./Menu";
 import Hero from "./Hero";
-import AboutSection from "./Carousel3D";
+import Carousel3D from "./Carousel3D";
 import ProgramSection from "./Program3D";
 import ContactSection from "./Contact3D";
 import FooterSection from "./Footer3D";
@@ -8,27 +9,21 @@ import FooterSection from "./Footer3D";
 export default function App() {
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
+      <CosmicBackground />
       <Menu />
       <Hero />
-
-      {/* Héros / Carousel */}
       <section className="relative">
-        <div id="carousel" className="absolute -top 50"></div>
-        <AboutSection />
+        <div id="carousel" className="absolute -top-36"></div>
+        <Carousel3D />
       </section>
-
-      {/* Programme */}
       <section className="relative">
-        <div id="program" className="absolute -top 42"></div>
+        <div id="program" className="absolute -top-36"></div>
         <ProgramSection />
       </section>
-
-      {/* Contact */}
       <section className="relative">
-        <div id="contact" className="absolute -top 42"></div>
+        <div id="contact" className="absolute -top-36"></div>
         <ContactSection />
       </section>
-
       <FooterSection />
     </div>
   );
