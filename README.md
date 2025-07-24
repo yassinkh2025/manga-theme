@@ -15,7 +15,7 @@ Idéale pour présenter un projet, un portfolio, une communauté ou un événeme
 
 ## 🎨 Aperçu
 
-![preview](./preview-manga-heroes.jpg)
+![preview](preview-manga-heroes.jpg)
 
 ---
 
