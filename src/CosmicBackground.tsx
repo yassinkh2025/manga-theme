@@ -1,6 +1,5 @@
 import { useRef, useEffect } from "react";
 
-// Utilise une couleur dominante du thème, modifie si tu veux plus violet/bleu/fuchsia
 const STAR_COLORS = ["#fff", "#a084fc", "#7df9ff", "#fff4db", "#e0b3ff"];
 
 function randomBetween(a: number, b: number) {
@@ -12,18 +11,20 @@ export default function CosmicBackground({ className = "", style = {} }) {
   const stars = useRef<any[]>([]);
   const comets = useRef<any[]>([]);
 
-  // Ajuste ici si tu veux plus/moins d'étoiles ou de comètes
   const STAR_COUNT = 90;
   const COMET_COUNT = 2;
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
+
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
     const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     function resize() {
+      if (!canvas) return;
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
       createStars();
@@ -68,16 +69,14 @@ export default function CosmicBackground({ className = "", style = {} }) {
 
     let frame = 0;
     function animate() {
-      if (!ctx) return;
+      if (!canvas || !ctx) return;
       ctx.clearRect(0, 0, width, height);
 
-      // Fond noir transparent (pour fade subtil)
       ctx.fillStyle = "#05020a";
       ctx.globalAlpha = 0.88;
       ctx.fillRect(0, 0, width, height);
       ctx.globalAlpha = 1;
 
-      // Étoiles
       for (const s of stars.current) {
         if (s.twinkle) {
           s.alpha += Math.sin(frame * s.speed + s.x * 0.01) * 0.009;
@@ -95,11 +94,9 @@ export default function CosmicBackground({ className = "", style = {} }) {
         ctx.restore();
       }
 
-      // Comètes
       for (const c of comets.current) {
         c.x += c.speed;
         if (c.x - c.length > width) {
-          // Reset la comète à gauche quand elle sort de l’écran
           c.x = -c.length;
           c.y = randomBetween(height * 0.2, height * 0.8);
         }
@@ -139,8 +136,8 @@ export default function CosmicBackground({ className = "", style = {} }) {
         minWidth: "100%",
         ...style,
       }}
-      width={window.innerWidth}
-      height={window.innerHeight}
+      width={typeof window !== "undefined" ? window.innerWidth : 1920}
+      height={typeof window !== "undefined" ? window.innerHeight : 1080}
       aria-hidden="true"
     />
   );
